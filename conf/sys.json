@@ -1,0 +1,9 @@
+{
+    "server": {
+        "cpu":"/sys/cpu",
+        "gpu":"/sys/gpu",
+        "cpuUsage":"/sys/cpu/usage",
+        "gpuLoadBalance":"/sys/gpu/load-balance",
+        "gpuLoadBalanceUage":"/sys/gpu/load-balance/usage"
+    }
+}

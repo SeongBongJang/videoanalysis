@@ -1,0 +1,50 @@
+{
+  "name": "va-server",
+  "version": "0.0.0",
+  "description": "va server",
+  "main": "bin/www",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create-doc": "bin/create-doc.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amuzlab/node-server.git"
+  },
+  "author": "amuzlab",
+  "license": "ISC",
+  "dependencies": {
+    "@amuzlab/config": "^0.0.2",
+    "@amuzlab/fs-promise": "^1.0.0",
+    "@amuzlab/ftp-client": "^1.0.6",
+    "@amuzlab/gpu-load-balancer": "^1.1.0",
+    "@amuzlab/logger": "^1.0.0",
+    "@amuzlab/process": "^1.0.0",
+    "@amuzlab/sys-info": "^1.1.0",
+    "@amuzlab/utils": "^1.0.1",
+    "@amuzlab/worker": "^1.0.5",
+    "axios": "^0.19.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "deep-equal": "^2.0.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "fs-extra": "^8.1.0",
+    "graceful-fs": "^4.2.3",
+    "mysql2": "^2.2.5",
+    "net-snmp": "^3.5.2",
+    "node-os-utils": "^1.2.2",
+    "node-schedule": "^1.3.2",
+    "random-key-generator": "^1.2.3",
+    "redis": "^2.8.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "sequelize": "^6.5.0",
+    "session-memory-store": "^1.0.0",
+    "sharp": "^0.28.1",
+    "uuid": "^3.3.3",
+    "validate": "^5.1.0",
+    "webworker-threads": "^0.7.17"
+  }
+}

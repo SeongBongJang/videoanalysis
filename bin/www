@@ -1,0 +1,75 @@
+'use strict'
+
+/**
+ * @module      bin/www
+ * @since       0.0.1
+ * @desc        서버의 main module<br/>
+ *              http 서버 또는 socket 서버 초기화 및 생성이 이루어진다
+ * @date        2020-01-02
+*/
+
+const http = require('http'),
+    path = require('path'),
+    config = require('@amuzlab/config')({
+        confPath: path.join(__dirname,'../conf')
+    }),
+    sysinfo = require('@amuzlab/sys-info')({
+        useGPU: true,
+        isDisplayUnit: false
+    }),
+    fs = require('@amuzlab/fs-promise').fileSystem,
+    logger = require('@amuzlab/logger')(config.log),    
+    app = require('../app')
+
+fs.checkPath(process.env.JOB_FILE_PATH)
+.catch(async (err) =>{
+    await fs.mkdir(process.env.JOB_FILE_PATH)
+})
+fs.checkPath(process.env.MSG_FILE_PATH)
+.catch(async (err) =>{
+    await fs.mkdir(process.env.MSG_FILE_PATH)
+})
+
+app.set('port', process.env.SERVER_PORT)
+
+const server = http.createServer(app)
+
+server.timeout = 0
+server.listen(process.env.SERVER_PORT, '0.0.0.0')
+server
+    .on(
+        'err',
+        err => {
+            if (err.syscall !== 'listen') {
+                throw err;
+            }
+
+            let bind = typeof config.port === 'string' ? 'Pipe ' + config.port : 'Port ' + config.port;
+
+            switch (err.code) {
+                case 'EACCES':
+                case 'EADDRINUSE':
+                    process.exit(1);
+                    break;
+                default:
+                    throw err;
+            }
+        })
+    .on(
+        'listening',
+        () => logger.info('server start(port: %d)', server.address().port))
+    .on(
+        'close',
+        () => logger.info('server close (port : %d)', server.address().port))
+    .on(
+        'clientError',
+        (err, socket) => logger.error(`client error HTTP 400 BAD Request (err : ${err.message})`))
+
+
+process
+    .on(
+        'unhandledRejection',
+        err => logger.error('unhandledRejection %s', err.stack))
+    .on(
+        'uncaughtException',
+        err => logger.error('uncaughtException %s', err.stack))

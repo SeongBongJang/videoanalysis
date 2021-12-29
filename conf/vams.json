@@ -1,0 +1,63 @@
+{
+    "nms": {
+        "url": {
+            "ShotBoundaryDetection": "/d-cms/videoAnalysisApi/sbd/result",
+            "DeepFeatureGenerator": "/d-cms/videoAnalysisApi/feature/result",
+            "FeatureMatching": "/d-cms/videoAnalysisApi/match/result",
+            "PixelImageMatching": "/d-cms/videoAnalysisApi/pixel-match/result",
+            "DeepFeatureTemporalMatching": "/d-cms/videoAnalysisApi/deep-feature/result",
+            "ShotClustering": "/d-cms/videoAnalysisApi/sc/result",
+            "Transcoder": "/d-cms/videoAnalysisApi/scTrans/result",
+            "SectionThumbnail": "/d-cms/videoAnalysisApi/th/result",
+            "FaceDetection": "/d-cms/videoAnalysisApi/vision/face",
+            "TextDetection": "/d-cms/videoAnalysisApi/vision/text",
+            "Trailer": "/d-cms/videoAnalysisApi/hl/video/result",
+            "FaceRecognition": "/d-cms/videoAnalysisApi/recognition/face",
+            "TextRecognition": "/d-cms/videoAnalysisApi/recognition/text",
+            "SpeechRecognition": "/d-cms/videoAnalysisApi/recognition/voice",
+            "Train": "/d-cms/videoAnalysisApi/train/result",
+            "BroadcastRecord": "/d-cms/videoAnalysisApi/br/result"
+        }
+    },
+    "detection": {
+        "outputPath": "detection",
+        "minScore": 0.1,
+        "gpuMemory": 0.2,
+        "thumbnail": {
+            "thumbnailWidth": "270",
+            "thumbnailHeight": "180"
+        },
+        "debug": {
+            "slicePath": "slice",
+            "overridePath": "override"
+        }
+    },
+    "recognition": {
+        "outputPath": "recognition",
+        "minScore": 0.1,
+        "gpuMemory": 0.2,
+        "debug": {
+            "slicePath": "slice",
+            "overridePath": "override"
+        }
+    },
+    "trailer": {
+        "interval": 10,
+        "cpuCore": 16
+    },
+    "intervalThumbnail": {
+        "sceneLength": "600"
+    },
+    "broadcastRecord": {
+        "outputPath": "broadcast_resource"
+    },
+    "generation": {
+        "outputPath": "generation"
+    },
+    "train": {
+        "shotClusteringTrain": "sc_resource/train_result"
+    },
+    "deepFeatureMatch": {
+        "outputPath": "deepFeatureMatch"
+    }
+}

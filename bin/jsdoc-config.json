@@ -1,0 +1,5 @@
+{
+    "source": {
+        "excludePattern": "(docs|bin|node_modules)"
+    }
+}

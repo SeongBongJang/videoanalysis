@@ -1,0 +1,11 @@
+{
+    "level": "debug",
+    "timestamp": true,
+    "timeFormat": "YYYY-MM-DD HH:mm:ss",
+    "transport": "console",
+    "logDir": "/logs",
+    "logFileName": "VAS",
+    "datePattern": "YYYY-MM-DD",
+    "maxSize": "50m",
+    "maxFiles": "10d"
+}

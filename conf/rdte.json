@@ -1,0 +1,18 @@
+{
+    "nms": {     
+        "url": {
+            "shotExtract": {
+                "jobs": "/rdte/shot/extraction",
+                "status": "/rdte/shot/extraction/pstate",
+                "report": "/rdte/shot/extraction/result"
+            }
+        }
+    },
+    "shotExtract":{
+        "outputPath": "/mnt/resource/rdte_resource",
+        "outputFileLimit": 10,
+        "overrunNonfatal" : "1",
+        "fifoSize": "5577530",
+        "timeout": 10000
+    }
+}
